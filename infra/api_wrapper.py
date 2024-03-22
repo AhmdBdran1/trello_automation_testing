@@ -1,7 +1,6 @@
 import concurrent.futures
 import unittest
 import requests
-
 from utility.json_files_reader import read_config
 
 
@@ -22,7 +21,7 @@ class APIWrapper:
         else:
             return self.response.status_code
 
-    def api_post_request(self, endpoints,params):
+    def api_post_request(self, endpoints, params):
         self.response = self.my_request.post(endpoints, params=params)
         print(self.response)
         if self.response.ok:
