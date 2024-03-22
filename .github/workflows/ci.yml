@@ -43,7 +43,7 @@ jobs:
       - name: Create Login Tokens
         env:
           SECRET: ${{ secrets.SECRET }}
-        run: python get_github_secrets.py
+        run: python utility/get_github_secrets.py
 
 
       - name: Run tests
