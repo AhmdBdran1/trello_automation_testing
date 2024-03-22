@@ -11,7 +11,7 @@ class LoginTest(unittest.TestCase):
         self.board_endpoint = BoardEndPoints(self.my_api)
 
     def tearDown(self):
-        check_the_result_of_test(self)  # Check if the test failed
+        check_the_result_of_test(self)  # if the test failed create jira bug issue
 
     def test_add_new_board(self):
         response = self.board_endpoint.create_new_board()
