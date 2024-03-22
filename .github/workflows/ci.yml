@@ -1,0 +1,62 @@
+name: Continuous Integration
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: |
+          pip install -r requirements.txt
+
+      - name: Set PYTHONPATH
+        run: |
+          echo "PYTHONPATH=${PYTHONPATH}:${GITHUB_WORKSPACE}" >> $GITHUB_ENV
+
+      - uses: browser-actions/setup-chrome@latest
+      - run: chrome --version
+
+      - name: Start Selenium Server HUB
+        run: nohup java -jar selenium-server-4.17.0.jar hub & sleep 10
+        shell: bash
+
+      - name: Start Selenium Server nodes
+        run: nohup java -jar selenium-server-4.17.0.jar node & sleep 10
+        shell: bash
+
+      - name: Set up Firefox
+        uses: browser-actions/setup-firefox@latest
+      - run: firefox --version
+
+      - name: Create Login Tokens
+        env:
+          SECRET: ${{ secrets.SECRET }}
+        run: python get_github_secrets.py
+
+
+      - name: Run tests
+        run: |
+          python tests/ui_test/login_page_test.py 
+          python tests/api_test/board_test.py
+          
+
+      - name: Upload test report
+        uses: actions/upload-artifact@v2
+        with:
+          name: Test Results
+          path: test-results.html
+
+
+

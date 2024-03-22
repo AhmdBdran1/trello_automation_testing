@@ -1,0 +1,9 @@
+{
+  "api_url" : "https://api.noctuasky.com/api/v1/",
+  "url": "https://trello.com/login",
+  "user_name": "Ahmd",
+  "hub_url": "http://localhost:4444/wd/hub",
+  "grid":true,
+  "serial":false,
+  "chrome":true
+}
