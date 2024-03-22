@@ -14,7 +14,7 @@ class BoardEndPoints:
         self.endpoints = f'{base_url}/boards/'
 
     def create_new_board(self):
-        # Parameters for creating a new board
+        # Parameters for creating a new boardd
         board_name = 'hello'
         params = {
             'key': self.api_key,
