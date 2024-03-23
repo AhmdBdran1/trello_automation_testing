@@ -13,32 +13,40 @@ class APIWrapper:
         self.grid = config['grid']
         self.url = config['api_url']
 
-    def api_get_request(self, endpoints, headers):
-        self.response = self.my_request.get(self.url + endpoints, headers=headers)
+    def api_get_request(self, endpoints, params, headers=None):
+        if headers is None:
+            self.response = self.my_request.get(endpoints, params=params)
+        else:
+            self.response = self.my_request.get(endpoints,params=params, headers=headers)
         print(self.response)
         if self.response.ok:
             return self.response
         else:
             return self.response.status_code
 
-    def api_post_request(self, endpoints, params):
-        self.response = self.my_request.post(endpoints, params=params)
+    def api_post_request(self, endpoints, params, headers=None):
+        if headers is None:
+            self.response = self.my_request.post(endpoints, params=params)
+        else:
+            self.response = self.my_request.post(endpoints, params=params, headers=headers)
+
+        print(self.response)
+
+        if self.response.ok:
+            return self.response
+        else:
+            return self.response.status_code
+
+    def api_put_request(self, endpoints, params):
+        self.response = self.my_request.put(endpoints, params=params)
         print(self.response)
         if self.response.ok:
             return self.response
         else:
             return self.response.status_code
 
-    def api_put_request(self, endpoints, data, headers):
-        self.response = self.my_request.put(self.url + endpoints, json=data, headers=headers)
-        print(self.response)
-        if self.response.ok:
-            return self.response
-        else:
-            return self.response.status_code
-
-    def api_delete_request(self, endpoints, headers):
-        self.response = self.my_request.delete(self.url + endpoints, headers=headers)
+    def api_delete_request(self, endpoints, params):  # response 200
+        self.response = self.my_request.delete(endpoints, params=params)
         print(self.response)
         if self.response.ok:
             return self.response
