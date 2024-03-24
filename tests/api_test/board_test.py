@@ -25,6 +25,7 @@ class BoardTest(unittest.TestCase):
         response = self.board_endpoint.update_board_name(self.board_id, "updated")
         self.assertTrue(response.status_code == 200)
 
+
     def test_invite_someone_to_board_via_email(self):
         response = self.board_endpoint.invite_person_to_board_via_email(self.board_id, "ahmd1997bdran@gmail.com")
         self.assertTrue(response.status_code == 200)
