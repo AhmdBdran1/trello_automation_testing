@@ -19,7 +19,7 @@ class CardPageTests(unittest.TestCase):
         self.browser_wrapper = BrowserWrapper()
         self.my_api = APIWrapper()
         self.board_endpoint = BoardEndPoints(self.my_api)
-        self.response = self.board_endpoint.create_new_board("new board")  # GENERATE BOARD NAME
+        self.response = self.board_endpoint.create_new_board("new board")  # GENERATE BOARD NAMEe
         response_data = self.response.json()
         self.board_id = response_data['id']
         self.list_endpoints = ListEndPoints(self.my_api)
