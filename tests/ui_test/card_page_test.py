@@ -1,6 +1,4 @@
 import unittest
-from time import sleep
-
 from selenium import webdriver
 from infra.api_wrapper import APIWrapper
 from infra.browser_wrapper import BrowserWrapper

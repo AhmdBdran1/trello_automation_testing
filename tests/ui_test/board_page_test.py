@@ -34,7 +34,7 @@ class BoardPageTests(unittest.TestCase):
         board_page = BoardPage(driver)
         boolean = board_page.add_another_list("new list")
         driver.quit()
-        self.assertTrue(boolean)
+        self.assertTrue(False)
 
     def test_add_new_card(self, option=webdriver.ChromeOptions()):
         driver = self.browser_wrapper.get_driver(option)
