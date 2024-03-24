@@ -17,7 +17,7 @@ class ListTest(unittest.TestCase):
         self.response = self.list_endpoints.create_list_on_a_board("create api tests")
 
     def tearDown(self):
-        check_the_result_of_test(self)  # if the test failed create jira bug issue
+        check_the_result_of_test(self)  # if the test failed create jira bug issuee
         self.board_endpoint.delete_a_board(self.board_id)
 
     def test_create_list_on_a_board(self):
