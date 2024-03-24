@@ -6,6 +6,7 @@ from utility.teardown_utilis import check_the_result_of_test
 
 
 class BoardTest(unittest.TestCase):
+
     def setUp(self):
         self.my_api = APIWrapper()
         self.board_endpoint = BoardEndPoints(self.my_api)

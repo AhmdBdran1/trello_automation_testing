@@ -1,3 +1,4 @@
+from time import sleep
 
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.common.by import By
@@ -18,7 +19,7 @@ class Login(BasePage):
 
     config = read_config()
     # URL of the Trello login page
-    LOGIN_URL = "https://trello.com/login"
+    LOGIN_URL = config['url']
 
     def __init__(self, driver):
         super().__init__(driver)
