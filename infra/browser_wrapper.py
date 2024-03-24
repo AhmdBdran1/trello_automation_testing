@@ -18,7 +18,7 @@ class BrowserWrapper:
         option.add_argument('--headless')  # This line makes Chrome run in headless mode
         option.add_argument('--no--sandbox')
         option.add_argument('--disable-dev-shm-usage')
-        option.add_argument('--window-size=1920x1080')
+        option.add_argument('--window-size=1440x900')
 
         if grid:
             print(option.to_capabilities())
