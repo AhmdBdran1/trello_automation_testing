@@ -56,7 +56,7 @@ jobs:
         uses: actions/upload-artifact@v2
         with:
           name: Test Results
-          path: test_reports
+          path: test-reports
 
 
 
