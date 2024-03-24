@@ -14,7 +14,7 @@ class CardTest(unittest.TestCase):
         self.board_endpoint = BoardEndPoints(self.my_api)
         self.list_endpoints = ListEndPoints(self.my_api)
         self.card_endpoints = CardEndPoints(self.my_api)
-        self.response = self.board_endpoint.create_new_board("new board created")
+        self.response = self.board_endpoint.create_new_board("new board")
         response_data = self.response.json()
         self.board_id = response_data['id']
         self.new_list_response = self.list_endpoints.create_new_list(self.board_id, "new list")
@@ -26,7 +26,7 @@ class CardTest(unittest.TestCase):
 
     def tearDown(self):
         check_the_result_of_test(self)  # if the test failed create jira bug issue
-        #self.board_endpoint.delete_a_board(self.board_id)
+        self.board_endpoint.delete_a_board(self.board_id)
 
     def test_create_new_card(self):
         self.assertTrue(self.new_card_response.status_code == 200)

@@ -5,12 +5,14 @@ from infra.base_page import BasePage
 
 
 class BoardPage(BasePage):
+
     ADD_ANOTHER_LIST_XPATH = "//button[normalize-space()='Add another list']"
     ENTER_LIST_TITLE_XPATH = "//textarea[@placeholder='Enter list title…']"
     ADD_LIST_BTN_XPATH = "//button[normalize-space()='Add list']"
     ADD_A_CARD_XPATH = "(//button[@type='button'][normalize-space()='Add a card'])[1]"
     ENTER_CARD_TITLE_XPATH = "//textarea[@placeholder='Enter a title for this card…']"
     ADD_CARD_XPATH = "//button[normalize-space()='Add card']"
+    OPEN_THE_CARD_XPATH = "//li[@class='T9JQSaXUsHTEzk']"
 
     def __init__(self, driver):
         super().__init__(driver)
@@ -46,6 +48,11 @@ class BoardPage(BasePage):
             EC.element_to_be_clickable((By.XPATH, self.ADD_CARD_XPATH)))
         add_card_btn.click()
 
+    def click_on_the_card(self):
+        click_on_go_into_the_card = WebDriverWait(self.driver, 10).until(
+            EC.element_to_be_clickable((By.XPATH, self.OPEN_THE_CARD_XPATH)))
+        click_on_go_into_the_card.click()
+
     def add_another_list(self, list_title):
         try:
             self.click_on_add_another_list()
@@ -65,4 +72,6 @@ class BoardPage(BasePage):
         except Exception as e:
             print(e)
             return False
+
+
 

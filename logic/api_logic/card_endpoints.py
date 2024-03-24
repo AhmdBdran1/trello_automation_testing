@@ -65,7 +65,9 @@ class CardEndPoints:
             'key': self.api_key,
             'token': self.token,
         }
-        # Make a put request to update the list name
+        # Make a delete request to delete the card
         response = self.my_api.api_delete_request(endpoints, params)
         return response
+
+
 
