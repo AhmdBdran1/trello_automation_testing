@@ -1,5 +1,4 @@
 import unittest
-
 import HtmlTestRunner
 
 from tests.ui_test.board_page_test import BoardPageTests
