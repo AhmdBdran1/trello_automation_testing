@@ -1,4 +1,6 @@
 import unittest
+from time import sleep
+
 from selenium import webdriver
 from infra.api_wrapper import APIWrapper
 from infra.browser_wrapper import BrowserWrapper
@@ -39,7 +41,6 @@ class CardPageTests(unittest.TestCase):
         home_page.click_on_board()
         board_page = BoardPage(driver)
         board_page.click_on_the_card()
-        driver.quit()
 
     def test_all_tests(self):  # run all tests
         tests_list = [self.test_go_into_card]

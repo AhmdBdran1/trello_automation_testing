@@ -26,6 +26,7 @@ class BoardPageTests(unittest.TestCase):
         self.board_endpoint.delete_a_board(self.board_id)
 
     def test_add_new_list(self, option=webdriver.ChromeOptions()):
+        self.setUp()  # Explicitly call setUp
         driver = self.browser_wrapper.get_driver(option)
         login_page = Login(driver)
         login_page.login()
@@ -34,7 +35,8 @@ class BoardPageTests(unittest.TestCase):
         board_page = BoardPage(driver)
         boolean = board_page.add_another_list("new list")
         driver.quit()
-        self.assertTrue(boolean)
+        self.assertTrue(False)
+        self.tearDown()  # Explicitly call teardown
 
     def test_add_new_card(self, option=webdriver.ChromeOptions()):
         driver = self.browser_wrapper.get_driver(option)
