@@ -46,7 +46,7 @@ class BoardPageTests(unittest.TestCase):
         self.assertTrue(boolean)
 
     def test_all_tests(self):  # run all tests
-        tests_list = [self.test_add_new_list, self.test_add_new_card]
+        tests_list = [self.test_add_new_card, self.test_add_new_list]
         for test in tests_list:
             self.browser_wrapper.run_test(test)
 
