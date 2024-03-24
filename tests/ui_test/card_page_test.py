@@ -13,7 +13,7 @@ from logic.ui_logic.login_page import Login
 from utility.teardown_utilis import check_the_result_of_test
 
 
-class BoardPageTests(unittest.TestCase):
+class CardPageTests(unittest.TestCase):
 
     def setUp(self):
         self.browser_wrapper = BrowserWrapper()
