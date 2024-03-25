@@ -51,7 +51,7 @@ jobs:
         run: |
           python tests_runner/ui_test_runner.py 
         
-          
+    
 
       - name: Upload test report
         uses: actions/upload-artifact@v2
