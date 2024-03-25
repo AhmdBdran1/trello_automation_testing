@@ -44,10 +44,9 @@ class BoardPageTests(unittest.TestCase):
         home_page.click_on_board()
         board_page = BoardPage(driver)
         boolean = board_page.add_new_card("new card")
-        driver.quit()
         self.assertTrue(boolean)
 
-    def run_all_tests(self):  # run all tests
+    def test_all_tests(self):  # run all tests
         tests_list = [self.test_add_new_card, self.test_add_new_list]
         for test in tests_list:
             self.browser_wrapper.run_test(test)
