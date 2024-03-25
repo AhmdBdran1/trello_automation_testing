@@ -44,12 +44,13 @@ jobs:
       - name: Create Login Tokens
         env:
           SECRET: ${{ secrets.SECRET }}
-        run: utility/get_github_secrets.py
+        run: python utility/get_github_secrets.py
 
 
       - name: Run tests
         run: |
           pytest tests_runner/ui_test_runner.py --html=test_report.html
+
         
     
 
@@ -57,7 +58,7 @@ jobs:
         uses: actions/upload-artifact@v2
         with:
           name: Test Results
-          path: test_report
+          path: test-report
 
 
 
