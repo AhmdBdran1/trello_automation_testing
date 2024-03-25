@@ -87,6 +87,10 @@ class CardPageTests(unittest.TestCase):
         driver.quit()
         self.assertTrue(boolean)
 
+    def test_all_tests(self):  # run all tests
+        tests_list = [self.test_add_comment_for_card, self.test_add_label_for_card]
+        for test in tests_list:
+            self.browser_wrapper.run_test(test)
 
 
 if __name__ == "__main__":

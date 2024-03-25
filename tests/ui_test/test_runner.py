@@ -47,7 +47,6 @@ class TestRunner:
                 test_instance.tearDown()
 
 
-# Usage
 if __name__ == "__main__":
     browser_options = [webdriver.ChromeOptions(), webdriver.FirefoxOptions()]  # Add more options as needed
     test_runner = TestRunner(CardPageTests, browser_options)
