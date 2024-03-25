@@ -2,7 +2,6 @@ import concurrent.futures
 from selenium import webdriver
 
 from tests.ui_test.card_page_test import CardPageTests
-from tests.ui_test.login_page_test import LoginPageTests
 from utility.jira_operations import create_jira_issue
 
 
