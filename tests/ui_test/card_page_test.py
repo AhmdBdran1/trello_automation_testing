@@ -47,20 +47,24 @@ class CardPageTests(unittest.TestCase):
         self.assertTrue(False)
 
     def test_change_card_description(self, option=webdriver.ChromeOptions()):
-        driver = self.browser_wrapper.get_driver(option)
-        login_page = Login(driver)
-        login_page.login()
-        home_page = HomePage(driver)
-        home_page.click_on_board()
-        board_page = BoardPage(driver)
-        board_page.click_on_the_card()
-        card_page = CardPage(driver)
-        card_page.change_card_description("new description")
-        response = self.card_endpoints.get_a_card(self.card_id)
-        response_data = response.json()
-        description = response_data['desc']
-        driver.quit()
-        self.assertIn('new description', description)
+        try:
+            driver = self.browser_wrapper.get_driver(option)
+            login_page = Login(driver)
+            login_page.login()
+            home_page = HomePage(driver)
+            home_page.click_on_board()
+            board_page = BoardPage(driver)
+            board_page.click_on_the_card()
+            card_page = CardPage(driver)
+            card_page.change_card_description("new description")
+            response = self.card_endpoints.get_a_card(self.card_id)
+            response_data = response.json()
+            description = response_data['desc']
+            driver.quit()
+            self.assertIn('new description', description)
+        except Exception as e:
+            self.fail("Test failed: {}".format(e))
+
 
     def test_add_comment_for_card(self, option=webdriver.ChromeOptions()):
         driver = self.browser_wrapper.get_driver(option)
@@ -89,8 +93,7 @@ class CardPageTests(unittest.TestCase):
         self.assertTrue(boolean)
 
     def test_all_tests(self):  # run all tests
-        tests_list = [self.test_to_simulate_failure_situation, self.test_add_comment_for_card,
-                      self.test_add_label_for_card]
+        tests_list = [self.test_add_comment_for_card, self.test_add_label_for_card]
         for test in tests_list:
             self.browser_wrapper.run_test(test)
 
