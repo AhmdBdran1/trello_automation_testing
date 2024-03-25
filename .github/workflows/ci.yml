@@ -49,7 +49,7 @@ jobs:
 
       - name: Run tests
         run: |
-          python python tests_runner/ui_test_runner.py 
+          python tests_runner/ui_test_runner.py 
           python -m unittest tests.ui_test.card_page_test.test_change_card_description
           
 
