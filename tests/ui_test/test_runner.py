@@ -12,8 +12,7 @@ class TestRunner:
         self.browser_options_list = browser_options_list
 
     def run_tests(self):
-        with concurrent.futures.ThreadPoolExecutor() as executor:  # You can also use ProcessPoolExecutor for
-            # separate processes
+        with concurrent.futures.ThreadPoolExecutor() as executor:
             futures = []
             for option in self.browser_options_list:
                 futures.append(executor.submit(self._run_tests_with_browser, option))
