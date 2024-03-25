@@ -6,7 +6,7 @@ from logic.api_logic.list_in_board_endpoints import ListInBoardEndPoints
 from utility.teardown_utilis import check_the_result_of_test
 
 
-class ListTest(unittest.TestCase):
+class ListInBoardTest(unittest.TestCase):
     def setUp(self):
         self.my_api = APIWrapper()
         self.board_endpoint = BoardEndPoints(self.my_api)

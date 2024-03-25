@@ -20,7 +20,7 @@ class BoardPageTests(unittest.TestCase):
         self.board_id = response_data['id']
 
     def tearDown(self):
-        check_the_result_of_test(self)  # if the test failed create jira bugg
+        check_the_result_of_test(self)  # if the test failed create jira bug
         self.board_endpoint.delete_a_board(self.board_id)
 
     def test_add_new_list(self, option=webdriver.ChromeOptions()):

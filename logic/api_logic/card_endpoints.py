@@ -19,6 +19,7 @@ class CardEndPoints:
 
         params = {
             'name': card_name,
+            'desc': 'description',
             'idList': list_id,
             'key': self.api_key,
             'token': self.token
@@ -68,6 +69,7 @@ class CardEndPoints:
         # Make a delete request to delete the card
         response = self.my_api.api_delete_request(endpoints, params)
         return response
+
 
 
 

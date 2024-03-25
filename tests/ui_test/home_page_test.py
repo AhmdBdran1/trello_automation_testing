@@ -38,6 +38,11 @@ class HomePageTests(unittest.TestCase):
         boolean = home_page.create_new_board("test board")
         self.assertTrue(boolean)
 
+    def test_all_tests(self):  # run all tests
+        tests_list = [self.test_create_new_board, self.test_get_into_the_board]
+        for test in tests_list:
+            self.browser_wrapper.run_test(test)
+
 
 if __name__ == "__main__":
     unittest.main()
