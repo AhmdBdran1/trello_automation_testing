@@ -33,6 +33,7 @@ class CardPageTests(unittest.TestCase):
         self.card_id = response_data['id']
 
     def tearDown(self):
+        check_the_result_of_test(self)
         self.board_endpoint.delete_a_board(self.board_id)
 
     def test_to_simulate_failure_situation(self, option=webdriver.ChromeOptions()):
