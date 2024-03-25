@@ -49,7 +49,7 @@ jobs:
 
       - name: Run tests
         run: |
-          python unittest tests_runner/ui_test_runner.py 
+          python tests_runner/ui_test_runner.py 
         
           
 
