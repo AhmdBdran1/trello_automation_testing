@@ -42,8 +42,8 @@ class CardPageTests(unittest.TestCase):
         board_page = BoardPage(driver)
         board_page.click_on_the_card()
 
-    def test_all_tests(self):  # run all tests
-        tests_list = [self.test_go_into_card]
+    def run_all_tests(self):  # run all tests
+        tests_list = [self.test_go_into_card()]
         for test in tests_list:
             self.browser_wrapper.run_test(test)
 
