@@ -20,7 +20,7 @@ pipeline {
             steps {
                 script {
                     // Execute the Python script
-                    sh 'python utility/get_github_secrets.py'
+                    sh 'python3 utility/get_github_secrets.py'
                 }
             }
         }
