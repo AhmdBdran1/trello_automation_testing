@@ -1,6 +1,10 @@
 pipeline {
     agent any
 
+    environment {
+        PYTHONPATH = "${WORKSPACE}"
+    }
+
     stages {
         stage('Build') {
             steps {
@@ -25,21 +29,21 @@ pipeline {
         stage('Run API Tests') {
             steps {
                 echo 'Running API Tests..'
-                sh 'python -m tests_runner/api_test_runner'
+                sh 'python3 tests_runner/api_test_runner.py'
             }
         }
 
         stage('Run UI Tests') {
             steps {
                 echo 'Running UI Tests..'
-                sh 'python tests_runner/ui_test_runner.py'
+                sh 'python3 tests_runner/ui_test_runner.py'
             }
         }
 
         stage('Run Failure Scenario Testing') {
             steps {
                 echo 'Running Failure Scenario Testing..'
-                sh 'python -m unittest tests.ui_test.card_page_test.CardPageTests.test_to_simulate_failure_situation || true'
+                sh 'python3 -m unittest tests.ui_test.card_page_test.CardPageTests.test_to_simulate_failure_situation || true'
             }
         }
 
