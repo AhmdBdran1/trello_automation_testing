@@ -46,14 +46,20 @@ jobs:
           SECRET: ${{ secrets.SECRET }}
         run: python utility/get_github_secrets.py
 
+      - name: Run API Tests
+        run: |
+          python tests_runner/api_test_runner.py 
 
-      - name: Run tests
+      - name: Run UI Tests
         run: |
           python tests_runner/ui_test_runner.py 
+
+      - name: Run Failure Scenario Testing
+        run: |
           python -m unittest tests.ui_test.card_page_test.CardPageTests.test_to_simulate_failure_situation || true
-
-
-      - name: Upload ui test report
+          
+          
+          - name: Upload ui test report
         uses: actions/upload-artifact@v2
         with:
           name: Ui Test Results
