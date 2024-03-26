@@ -52,16 +52,18 @@ jobs:
           python tests_runner/ui_test_runner.py 
           python -m unittest tests.ui_test.card_page_test.CardPageTests.test_to_simulate_failure_situation || true
 
-          
-       
-          
 
-
-      - name: Upload test report
+      - name: Upload ui test report
         uses: actions/upload-artifact@v2
         with:
-          name: Test Results
-          path: test-reports
+          name: Ui Test Results
+          path: ui-test-reports
+
+      - name: Upload api test report
+        uses: actions/upload-artifact@v2
+        with:
+          name: API Test Results
+          path: api-test-reports
 
 
 

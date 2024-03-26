@@ -1,5 +1,7 @@
 import concurrent.futures
 import unittest
+
+import HtmlTestRunner
 import requests
 from utility.json_files_reader import read_config
 
@@ -56,7 +58,10 @@ class APIWrapper:
     # Define a function to run each test case
     def run_test_case(self, test_case):
         suite = unittest.TestLoader().loadTestsFromTestCase(test_case)
-        unittest.TextTestRunner().run(suite)
+        # Create HtmlTestRunner instance with output file
+        runner = HtmlTestRunner.HTMLTestRunner(output='api-test-reports')
+        # Run test suite and generate report
+        runner.run(suite)
 
     # Define the main function to run all test cases
     def run_tests(self, test_cases):

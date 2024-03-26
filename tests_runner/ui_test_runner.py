@@ -9,5 +9,5 @@ if __name__ == "__main__":
     suite = unittest.TestSuite()
     suite.addTest(BoardPageTests('test_all_tests'))
     suite.addTest(CardPageTests('test_all_tests'))
-    runner = HtmlTestRunner.HTMLTestRunner(output='test-reports')
+    runner = HtmlTestRunner.HTMLTestRunner(output='ui-test-reports')
     runner.run(suite)
