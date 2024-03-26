@@ -25,7 +25,7 @@ pipeline {
         stage('Run API Tests') {
             steps {
                 echo 'Running API Tests..'
-                sh 'python tests_runner/api_test_runner.py'
+                sh 'python -m tests_runner/api_test_runner'
             }
         }
 
