@@ -6,6 +6,7 @@ def create_jira_issue(summary, description):
     # Create JIRA issue with relevant information
     private_config = read_from_secret_file()
     token = private_config['jira_token']
+    token = token[4:]
     email = private_config['jira_email']
     jira_url = private_config['jira_url']
     project_token = private_config['project_token']

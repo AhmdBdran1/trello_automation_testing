@@ -15,6 +15,13 @@ pipeline {
             }
         }
 
+        stage('Create Secrets File') {
+            steps {
+                echo 'Creating secrets.json file...'
+                sh 'echo \'{"trello_email": "vevem14@gmail.com", "trello_password" : "Ah2024bdr", "jira_url" : "https://ahmd1997bdran.atlassian.net", "jira_email": "ahmd1997bdran@gmail.com", "project_token" : "FPM", "jira_token" : "ahmdATATT3xFfGF0UlRZFau-8FLRB2XZKozc00B4WCaRbbJzYBjtQ5PHUMjyYVCZ-b3jYDN9VEVn8E__e0NCvYKbSAZWXfDJx7mzgzD7NvaI2zVXDVOVTpS0vP05XxOmpidm_se8rChsj9YuHnHCDY0jCLoaksko5EBAZjrdzAib5kgpe5uCmjcxKYs=8F1CF113", "trello_token": "ahmdATTA4f14fcd1933bde89ab95ad5f3003ae9e2c09081ad8079f39b3865259dc47671420A43297", "api_token": "ahmdbbe530cb763d9199352c6463e3440ac8"}\' > config/secrets.json'
+            }
+        }
+
 
         stage('Start Selenium Servers') {
             steps {
