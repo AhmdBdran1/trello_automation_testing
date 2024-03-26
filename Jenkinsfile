@@ -16,15 +16,6 @@ pipeline {
         }
 
 
-        stage('Get GitHub Secrets') {
-            steps {
-                script {
-                    // Execute the Python script
-                    sh 'python3 utility/get_github_secrets.py'
-                }
-            }
-        }
-
         stage('Start Selenium Servers') {
             steps {
                 echo 'Starting Selenium Hub...'
