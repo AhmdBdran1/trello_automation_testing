@@ -70,6 +70,12 @@ class CardEndPoints:
         response = self.my_api.api_delete_request(endpoints, params)
         return response
 
-
-
-
+    def get_card_with_wrong_api_token(self, card_id):
+        endpoints = self.base_endpoints + "" + card_id
+        params = {
+            'key': self.api_key + "ah",
+            'token': self.token
+        }
+        # Make a get request to get a list
+        response = self.my_api.api_get_request(endpoints, params)
+        return response

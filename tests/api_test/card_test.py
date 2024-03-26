@@ -53,6 +53,10 @@ class CardTest(unittest.TestCase):
         response = self.card_endpoints.delete_card(self.card_id)
         self.assertTrue(response.status_code == 200)
 
+    def test_get_card_with_wrong_api_token(self):  # security testing
+        response = self.card_endpoints.get_card_with_wrong_api_token(self.card_id)
+        self.assertEqual(response, 401)
+
 
 if __name__ == "__main__":
     unittest.main()
