@@ -6,9 +6,7 @@ class ListEndPoints:
         self.my_api = my_api
         secrets_config = read_from_secret_file()
         self.token = secrets_config['trello_token']
-        self.token = self.token[4:]
         self.api_key = secrets_config['api_token']
-        self.api_key = self.api_key[4:]
         # Constants for Trello API
         config = read_config()
         base_url = config['api_url']
