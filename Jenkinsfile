@@ -24,7 +24,7 @@ pipeline {
                 echo 'Starting Selenium Node...'
                 sh 'java -jar selenium-server-4.17.0.jar node &'
 
-                // Wait for a moment to allow servers to start
+                // Wait for a moment to allow servers to startt
                 sleep 30
             }
         }
