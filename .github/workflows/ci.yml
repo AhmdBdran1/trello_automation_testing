@@ -46,11 +46,15 @@ jobs:
           SECRET: ${{ secrets.SECRET }}
         run: python utility/get_github_secrets.py
 
+      - name: Run failure test
+        run: |
+          python -m unittest tests.ui_test.card_page_test.CardPageTests.test_to_simulate_failure_situation
 
       - name: Run tests
         run: |
           python tests_runner/ui_test_runner.py 
-          python -m unittest tests.ui_test.card_page_test.test_change_card_description
+          
+       
           
 
 
