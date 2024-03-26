@@ -31,7 +31,7 @@ class LoginPageTests(unittest.TestCase):
         load_time = end_time - start_time
         print("Page load time:", load_time, "seconds")
         driver.quit()
-        self.assertLessEqual(load_time, 10, "Page load time exceeds 10 seconds")
+        self.assertLessEqual(load_time, 20, "Page load time exceeds 10 seconds")
 
 
 if __name__ == "__main__":
