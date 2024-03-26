@@ -9,7 +9,8 @@ pipeline {
         stage('Build') {
             steps {
                 echo 'Building..'
-                sh 'pip3 install -r requirements.txt' // Install required packages
+                sh 'pip3 install -r requirements.txt' // Install other required packages
+                sh 'pip3 install --upgrade html-testRunner' // Install or upgrade html-testRunner package
             }
         }
 
