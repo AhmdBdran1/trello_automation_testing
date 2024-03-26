@@ -11,6 +11,17 @@ pipeline {
                 echo 'Building..'
                 sh 'pip3 install -r requirements.txt' // Install other required packages
                 sh 'pip3 install --upgrade html-testRunner' // Install or upgrade html-testRunner package
+
+            }
+        }
+
+
+        stage('Get GitHub Secrets') {
+            steps {
+                script {
+                    // Execute the Python script
+                    sh 'python utility/get_github_secrets.py'
+                }
             }
         }
 
