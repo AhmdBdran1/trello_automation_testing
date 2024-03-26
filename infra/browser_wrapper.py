@@ -42,7 +42,7 @@ class BrowserWrapper:
         with concurrent.futures.ThreadPoolExecutor(max_workers=len(options_list)) as executor:
             list(executor.map(test_execute, options_list))
 
-    def run_test(self, test_execute):
+    def run_test(self, test_execute):  # add comment
         config = read_config()
         grid = config['grid']
         if grid:

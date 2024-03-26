@@ -2,7 +2,7 @@ name: Continuous Integration
 on:
   push:
     branches:
-      - main
+      - '*'
 
 jobs:
   build:
@@ -20,6 +20,7 @@ jobs:
       - name: Install dependencies
         run: |
           pip install -r requirements.txt
+          pip install --upgrade html-testRunner
 
       - name: Set PYTHONPATH
         run: |
@@ -48,15 +49,17 @@ jobs:
 
       - name: Run tests
         run: |
-          python tests/ui_test/login_page_test.py 
-          python tests/api_test/board_test.py
+          python tests_runner/ui_test_runner.py 
           
+       
+          
+
 
       - name: Upload test report
         uses: actions/upload-artifact@v2
         with:
           name: Test Results
-          path: test-results.html
+          path: test-reports
 
 
 

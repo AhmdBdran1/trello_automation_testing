@@ -11,7 +11,7 @@ class LoginPageTests(unittest.TestCase):
         self.browser_wrapper = BrowserWrapper()
 
     def tearDown(self):
-        check_the_result_of_test(self)  # if the test failed create jira bug
+        print('done')
 
     def test_login(self, option=webdriver.ChromeOptions()):  # test the login proces
         driver = self.browser_wrapper.get_driver(option)
