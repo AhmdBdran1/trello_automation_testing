@@ -1,0 +1,67 @@
+pipeline {
+    agent any
+
+    stages {
+        stage('Build') {
+            steps {
+                echo 'Building..'
+                sh 'pip3 install -r requirements.txt' // Install required packages
+            }
+        }
+
+        stage('Start Selenium Servers') {
+            steps {
+                echo 'Starting Selenium Hub...'
+                sh 'java -jar selenium-server-4.17.0.jar hub &'
+
+                echo 'Starting Selenium Node...'
+                sh 'java -jar selenium-server-4.17.0.jar node &'
+
+                // Wait for a moment to allow servers to start
+                sleep 30
+            }
+        }
+
+        stage('Run API Tests') {
+            steps {
+                echo 'Running API Tests..'
+                sh 'python tests_runner/api_test_runner.py'
+            }
+        }
+
+        stage('Run UI Tests') {
+            steps {
+                echo 'Running UI Tests..'
+                sh 'python tests_runner/ui_test_runner.py'
+            }
+        }
+
+        stage('Run Failure Scenario Testing') {
+            steps {
+                echo 'Running Failure Scenario Testing..'
+                sh 'python -m unittest tests.ui_test.card_page_test.CardPageTests.test_to_simulate_failure_situation || true'
+            }
+        }
+
+        stage('Deploy') {
+            steps {
+                echo 'Deploying..'
+                // Add deployment steps here
+            }
+        }
+
+        stage('Upload UI test report') {
+            steps {
+                echo 'Uploading UI test report..'
+                archiveArtifacts 'ui-test-reports/*'
+            }
+        }
+
+        stage('Upload API test report') {
+            steps {
+                echo 'Uploading API test report..'
+                archiveArtifacts 'api-test-reports/*'
+            }
+        }
+    }
+}
