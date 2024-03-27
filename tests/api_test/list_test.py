@@ -41,8 +41,6 @@ class ListTest(unittest.TestCase):
     def test_get_list_cards(self):
         response = self.list_endpoints.get_list_cards(self.list_id)
         self.assertTrue(response.status_code == 200)
-        response_data = response.json()
-        print(json.dumps(json.loads(response.text), sort_keys=True, indent=4, separators=(",", ": ")))
 
 
 if __name__ == "__main__":
