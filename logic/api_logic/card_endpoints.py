@@ -5,8 +5,10 @@ class CardEndPoints:
     def __init__(self, my_api):
         self.my_api = my_api
         secrets_config = read_from_secret_file()
-        self.token = secrets_config['trello_token']
-        self.api_key = secrets_config['api_token']
+        trello_token_temp_text = secrets_config['trello_token']
+        self.token = trello_token_temp_text[4:]
+        api_key_temp_test = secrets_config['api_token']
+        self.api_key = api_key_temp_test[4:]
         # Constants for Trello API
         config = read_config()
         base_url = config['api_url']
