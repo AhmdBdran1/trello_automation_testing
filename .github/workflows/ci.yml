@@ -56,7 +56,7 @@ jobs:
 
       - name: Run Failure Scenario Testing
         run: |
-          python -m unittest tests.ui_test.card_page_test.CardPageTests.test_to_simulate_failure_situation || true
+          python -m unittest tests.api_test.negative_test.NegativeTest.test_get_card_with_wrong_api_token || true
           
 
       - name: Upload UI test report

@@ -53,7 +53,7 @@ pipeline {
         stage('Run Failure Scenario Testing') {
             steps {
                 echo 'Running Failure Scenario Testing..'
-                sh 'python3 -m unittest tests.ui_test.card_page_test.CardPageTests.test_to_simulate_failure_situation || true'
+                sh 'python3 -m unittest tests.api_test.negative_test.NegativeTest.test_get_card_with_wrong_api_token || true'
             }
         }
 

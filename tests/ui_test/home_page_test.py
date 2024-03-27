@@ -5,6 +5,7 @@ from infra.browser_wrapper import BrowserWrapper
 from logic.api_logic.board_endpoints import BoardEndPoints
 from logic.ui_logic.home_page import HomePage
 from logic.ui_logic.login_page import Login
+from utility.name_generator import generate_random_name
 from utility.teardown_utilis import check_the_result_of_test
 
 
@@ -14,7 +15,8 @@ class HomePageTests(unittest.TestCase):
         self.browser_wrapper = BrowserWrapper()
         self.my_api = APIWrapper()
         self.board_endpoint = BoardEndPoints(self.my_api)
-        self.response = self.board_endpoint.create_new_board("new board")
+        board_name = generate_random_name()
+        self.response = self.board_endpoint.create_new_board(board_name)
         response_data = self.response.json()
         self.board_id = response_data['id']
 
