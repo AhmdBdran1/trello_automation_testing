@@ -57,12 +57,6 @@ pipeline {
             }
         }
 
-        stage('Deploy') {
-            steps {
-                echo 'Deploying..'
-                // Add deployment steps here
-            }
-        }
 
         stage('Upload UI test report') {
             steps {
@@ -75,6 +69,13 @@ pipeline {
             steps {
                 echo 'Uploading API test report..'
                 archiveArtifacts 'api-test-reports/*'
+            }
+        }
+
+        stage('Deploy') {
+            steps {
+                echo 'Deploying..'
+                // Add deployment steps here
             }
         }
     }
