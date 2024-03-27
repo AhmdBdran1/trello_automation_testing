@@ -82,7 +82,7 @@ class CardPage(BasePage):
     def add_label(self):
         try:
             self.click_on_labels()
-            #self.click_add_green_label()
+            # self.click_add_green_label()
             return True
         except Exception as e:
             print(e)

@@ -1,6 +1,5 @@
 import json
-import sys
-import argparse
+
 import os.path
 
 
