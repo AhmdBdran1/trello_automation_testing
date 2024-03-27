@@ -40,16 +40,6 @@ class CardPageTests(unittest.TestCase):
         check_the_result_of_test(self)
         self.board_endpoint.delete_a_board(self.board_id)
 
-    def test_to_simulate_failure_situation(self, option=webdriver.ChromeOptions()):
-        driver = self.browser_wrapper.get_driver(option)
-        login_page = Login(driver)
-        login_page.login()
-        home_page = HomePage(driver)
-        home_page.click_on_board()
-        board_page = BoardPage(driver)
-        board_page.click_on_the_card()
-        self.assertTrue(False)
-
     def test_change_card_description(self, option=webdriver.ChromeOptions()):
         try:
             driver = self.browser_wrapper.get_driver(option)
