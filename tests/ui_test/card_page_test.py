@@ -37,7 +37,7 @@ class CardPageTests(unittest.TestCase):
         self.card_id = response_data['id']
 
     def tearDown(self):
-        check_the_result_of_test(self)
+        check_the_result_of_test(self)  # if the test failed create jira bug issue
         self.board_endpoint.delete_a_board(self.board_id)
 
     def test_change_card_description(self, option=webdriver.ChromeOptions()):
