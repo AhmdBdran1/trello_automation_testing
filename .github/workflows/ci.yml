@@ -46,7 +46,13 @@ jobs:
           SECRET: ${{ secrets.SECRET }}
         run: python utility/get_github_secrets.py
 
+      - name: Run API Tests
+        run: |
+          python tests_runner/api_test_runner.py 
 
+      - name: Run UI Tests
+        run: |
+          python tests_runner/ui_test_runner.py 
 
       - name: Run Failure Scenario Testing
         run: |
