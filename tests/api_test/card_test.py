@@ -1,4 +1,3 @@
-import json
 import unittest
 
 from infra.api_wrapper import APIWrapper
@@ -15,7 +14,7 @@ class CardTest(unittest.TestCase):
         self.board_endpoint = BoardEndPoints(self.my_api)
         self.list_endpoints = ListEndPoints(self.my_api)
         self.card_endpoints = CardEndPoints(self.my_api)
-        self.board_name = generate_random_name() # generate random name for board
+        self.board_name = generate_random_name()  # generate random name for board
         self.response = self.board_endpoint.create_new_board(self.board_name)
         response_data = self.response.json()
         self.board_id = response_data['id']
