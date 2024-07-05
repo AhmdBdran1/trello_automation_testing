@@ -30,7 +30,7 @@ class ListTest(unittest.TestCase):
         response = self.list_endpoints.get_a_list(self.list_id)
         self.assertTrue(response.status_code == 200)
         response_data = response.json()
-        self.assertEqual(response_data['name'], 'new list') #
+        self.assertEqual(response_data['name'], 'new list')
 
     def test_update_list_name(self):
         response = self.list_endpoints.update_list_name(self.list_id, "new name")
